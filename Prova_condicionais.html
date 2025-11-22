@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova condicionais</title>
+  </head>
+  <body>
+    <script>
+      let idade = Number(prompt("Digite a sua idade:"));
+      let status = prompt("Digite o status do seu registro:");
+
+      if (idade >= 18) {
+        MaiorDeIdade = true;
+      } else {
+        MaiorDeIdade = false;
+      }
+
+      let RegistroCompleto = 
+      status === "completo" ? true :
+      status === "incompleto" ? false :
+       null;
+
+      switch (RegistroCompleto) {
+        case true:
+          console.log("Seja bem-vindo!");
+          break;
+
+        case false:
+          console.log("Por favor, complete o seu registro.");
+          break;
+
+        default:
+          console.log("O status do seu registro é desconhecido.");
+      }
+
+      if (MaiorDeIdade === true && RegistroCompleto === true) {
+        console.log("Parabéns, você tem acesso completo!");
+      } else {
+        console.log("Vixe, o seu acesso é limitado.");
+      }
+    </script>
+  </body>
+</html>
