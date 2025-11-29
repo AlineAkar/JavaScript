@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova Loop</title>
+  </head>
+  <body>
+    <script>
+      let nome = prompt("Digite o seu nome:");
+      let lista = [];
+      lista.push(nome);
+
+      while (true) {
+        nome = prompt("Digite o nome dos seus acompanhantes:");
+        if (nome === "sair") {
+          break;
+        }
+        lista.push(nome);
+      }
+
+      for (enumerar = 0; enumerar < lista.length; enumerar++) {
+        console.log(enumerar + 1 + ": " + lista[enumerar]);
+      }
+
+      for (let nome of lista) {
+        console.log(`Bem-vindo(a) ${nome}!`);
+      }
+    </script>
+  </body>
+</html>
