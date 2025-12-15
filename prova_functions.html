@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova Functions</title>
+  </head>
+  <body>
+    <script>
+      const armazenar = [];
+      let tarefa;
+
+      const lista = () => {
+        while (true) {
+          tarefa = prompt("Adicione uma tarefa, ou digite NÃO para sair: ");
+          if (tarefa === "NÃO") {
+            break;
+          }
+          armazenar.push(tarefa);
+        }
+      };
+
+      lista();
+
+      for (indice = 0; indice < armazenar.length; indice++) {
+        console.log(indice + 1 + ": " + armazenar[indice]);
+      }
+
+      function operacoes() {
+        const respostaDoUsuario = prompt(
+          "Você deseja fazer alguma operação na sua lista? Basta digitar remover, atualizar ou concluir:"
+        );
+        if (respostaDoUsuario === "remover") {
+          remover(
+            Number(
+              prompt("Digite o número da tarefa que você deseja remover: ")
+            )
+          );
+        } else if (respostaDoUsuario === "atualizar") {
+          atualizar(
+            Number(
+              prompt("Digite o número da tarefa que você deseja atualizar: ")
+            )
+          );
+        } else if (respostaDoUsuario === "concluir") {
+          concluir(
+            Number(
+              prompt("Digite o número da tarefa que você deseja concluir: ")
+            )
+          );
+        } else {
+          alert("Você concluiu as suas operações na lista.");
+        }
+      }
+
+      function remover(indiceRemover) {
+        const indiceNovoR = indiceRemover - 1;
+        armazenar.splice(indiceNovoR, 1);
+        console.log(armazenar);
+      }
+
+      function atualizar(indiceAtualizar) {
+        const indiceNovoA = indiceAtualizar - 1;
+        const tarefaNova = prompt(
+          "Digite a nova tarefa que você quer adicionar: "
+        );
+        armazenar[indiceNovoA] = tarefaNova;
+        console.log(armazenar);
+      }
+
+      function concluir(indiceConcluir) {
+        const indiceNovoC = indiceConcluir - 1;
+        armazenar[indiceNovoC] = armazenar[indiceNovoC] + " - Concluída";
+        console.log(armazenar);
+      }
+
+      operacoes();
+
+    </script>
+  </body>
+</html>
