@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let lista = [];
+      lista.push(prompt("Digite o primeiro item na sua lista de compras:"));
+      alert(`Sua lista por enquanto é: ${lista}`);
+
+      // 1- Adicionar Itens: utilize o método push() para permitir que o usuário adicione
+      let adicionarItem = prompt("Deseja adicionar um item?");
+      if (adicionarItem === "sim") {
+        let respostaUsuario = prompt("O que você deseja adicionar?");
+        lista.push(respostaUsuario);
+        alert(`Sua lista por enquanto é: ${lista}`);
+      } else {
+        alert("Você não adicionou nenhum item.");
+      }
+
+      // 2- Remover Itens: Permita que o usuário remova um item específico utilizando o método splice(). O programa deve solicitar o índice do item a ser removido.
+      let removerItem = prompt("Deseja remover um item?");
+      if (removerItem === "sim") {
+        alert("Veja o índice dos itens da sua lista");
+        let i = 0;
+        for (const item of lista) {
+          alert("Item " + (1 + i) + "- " + item);
+          i++;
+        }
+        let respostaUsuario2 = Number(
+          prompt("Digite o índice do item que deseja remover."),
+        );
+        lista.splice(respostaUsuario2 - 1, 1);
+      } else {
+        alert("Você não removeu nenhum item");
+      }
+
+      // 3- Atualizar Itens: Permita que o usuário atualize um item da lista ao fornecer o índice e o novo valor.
+      alert(`Sua lista agora é: ${lista}`);
+      let atualizarItem = prompt("Deseja atualizar um item?");
+      if (atualizarItem === "sim") {
+        alert("Veja o índice dos itens da sua lista");
+        let i = 0;
+        for (const item of lista) {
+          alert("Item " + (1 + i) + "- " + item);
+          i++;
+        }
+        let respostaUsuario3 = Number(
+          prompt("Digite o índice do item que deseja atualizar."),
+        );
+        let itemNovo = prompt("Qual o item novo para atualizar na lista?");
+        lista.splice(respostaUsuario3 - 1, 1, itemNovo);
+      } else {
+        alert("Você não atualizou nenhum item");
+      }
+
+      alert("Você terminou a sua lista.");
+      console.log(`Lista final:${lista}`);
+    </script>
+  </body>
+</html>
