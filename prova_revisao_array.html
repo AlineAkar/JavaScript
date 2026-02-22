@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova Revisão Array</title>
+  </head>
+  <body>
+    <script>
+      // Adicionar Tarefas: Solicite ao usuário o nome de uma tarefa e adicione-a ao final do array usando o método push().
+      let lista = [];
+      let adicionarTarefa = prompt(
+        "Faça a sua lista. Adicione uma tarefa. Caso tenha terminado a sua lista, digite 'não':",
+      );
+      while (adicionarTarefa !== "não") {
+        lista.push(adicionarTarefa);
+        adicionarTarefa = prompt(
+          "Faça a sua lista. Adicione uma tarefa. Caso tenha terminado a sua lista, digite 'não':",
+        );
+      }
+      console.log(lista);
+
+      // Remover Tarefas: Solicite ao usuário o índice da tarefa que deseja remover e utilize o método splice() para removê-la do array.
+      for (let i = 0; i < lista.length; i++) {
+        alert(`A sua lista é: ${i + 1} - ${lista[i]}`);
+      }
+      let removerTarefa = prompt(
+        "Quer remover algum item? Diga o índice da tarefa que deseja remover. Caso não queira remover, digite 'não':",
+      );
+      while (removerTarefa !== "não") {
+        const indice = Number(removerTarefa);
+        lista.splice(indice - 1, 1);
+        removerTarefa = prompt(
+          "Quer remover algum item? Diga o índice da tarefa que deseja remover. Caso não queira remover, digite 'não':",
+        );
+      }
+      console.log(lista);
+
+      //Concluir Tarefas (Opcional): Peça ao usuário o índice de uma tarefa e marque-a como concluída, modificando a string para algo como "✅ Lavar a louça".
+      for (let i = 0; i < lista.length; i++) {
+        alert(`A sua lista é: ${i + 1} - ${lista[i]}`);
+      }
+
+      let concluirTarefa = prompt(
+        "Quer concluir algum item? Diga o índice da tarefa que deseja concluir. Caso não queira, digite 'não':",
+      );
+      while (concluirTarefa !== "não") {
+        const indice = Number(concluirTarefa) - 1;
+        lista[indice] = lista[indice] + "- OK";
+        concluirTarefa = prompt(
+          "Quer concluir algum item? Diga o índice da tarefa que deseja concluir. Caso não queira, digite 'não':",
+        );
+      }
+      console.log(lista);
+    </script>
+  </body>
+</html>
