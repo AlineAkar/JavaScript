@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova Métodos Avançados Array</title>
+  </head>
+  <body>
+    <script>
+      let lista = [];
+      let listaNomes = prompt(
+        "Monte uma lista de nomes. Informe um nome por vez. Quando tiver acabado, digite fim:",
+      );
+      while (listaNomes !== "fim") {
+        lista.push(listaNomes);
+        listaNomes = prompt(
+          "Monte uma lista de nomes. Informe um nome por vez. Quando tiver acabado, digite fim:",
+        );
+      }
+      console.log(lista);
+      alert(lista);
+
+      let listaContinua = prompt(
+        "Você quer fazer uma operação na sua lista? Digite: filtrar OU buscar OU transformar OU verificar. Caso não queira realizar uma operação, digite não:",
+      );
+
+      //Interação Contínua
+      while (listaContinua !== "não") {
+        if (listaContinua === "filtrar") {
+          // 2- Filtrar Nomes
+          let listaFiltro = prompt(
+            "Encontre nomes pela inicial. Informe a letra específica que você deseja filtrar e te mostraremos os nomes correspondentes:",
+          );
+          let listaFiltrada = lista.filter((nome) => nome.startsWith(listaFiltro));
+          alert(listaFiltrada);
+          console.log(listaFiltrada);
+        } else if (listaContinua === "buscar") {
+          // 3- Buscar um Nome Específico
+          let listaBusca = prompt(
+            "Certifique-se de que um nome está na lista. Informe o nome que você deseja buscar:",
+          );
+          let resultadoBusca = lista.find((buscaUsuario) => {
+            return buscaUsuario === listaBusca;
+          });
+          if (resultadoBusca !== undefined) {
+            alert("O nome está na lista.");
+            console.log(resultadoBusca);
+          } else {
+            console.log("O nome não foi encontrado.");
+            alert("O nome não foi encontrado.");
+          }
+        } else if (listaContinua === "transformar") {
+          // 4- Transformar Nomes
+          let listaMaiuscula = prompt(
+            "Deseja alterar todas as letras para maiúsculas?",
+          );
+          if (listaMaiuscula === "sim") {
+            lista = lista.map((nome) => nome.toUpperCase());
+            console.log(lista);
+            alert(lista);
+          }
+        } else if (listaContinua === "verificar") {
+          // 5- Verificar Condições"
+          let respostaVerificar = prompt(
+            "Deseja verificar se todos os nomes da sua lista possuem pelo menos 03 caracteres?",
+          );
+          if (respostaVerificar === "sim") {
+            const nomeMaior03 = lista.every((nome) => nome.length >= 3);
+            if (nomeMaior03 === true) {
+              alert("Sim, todos os nomes possuem pelo menos 03 caracteres");
+            } else {
+              alert("Não, nem todos os nomes possuem pelo menos 03 caracteres");
+            }
+            console.log(nomeMaior03);
+          }
+        }
+        listaContinua = prompt(
+          "Você quer fazer uma operação na sua lista? Digite: filtrar OU buscar OU transformar OU verificar. Caso não queira realizar uma operação, digite não:",
+        );
+      }
+    </script>
+  </body>
+</html>
