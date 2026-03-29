@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prova Objetos Literais</title>
+  </head>
+  <body>
+    <script>
+
+          //1- Explique o que são objetos literais em JavaScript.
+          // R: Objetos literais no JavaScript são uma forma de organizar dados dentro de uma única estrutura. Eles podem guardar números, strings, arrays, funções, etc.
+
+          //2- Mostre um exemplo prático de um objeto chamado aluno.
+          let aluno = {
+              nome: "Aline",
+              notas: [9, 7, 8],
+              calcularMedia() {
+                  let soma = 0;
+                  for (let i = 0; i < this.notas.length; i++) {
+                    soma += this.notas[i];}
+                    return soma / this.notas.length;
+                    }
+                }
+                console.log(aluno);
+                console.log(aluno.calcularMedia());
+                
+            //3- Utilize a desestruturação e o spread operator.
+            let {nome, notas} = aluno
+            let novasNotas = [...notas, 7];
+            console.log(novasNotas);
+
+        </script>
+  </body>
+</html>
