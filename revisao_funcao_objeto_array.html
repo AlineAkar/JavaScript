@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revisão sobre Função, Objeto e Array</title>
+  </head>
+  <body>
+    <script>
+
+      let aluno = {
+        nome: "Aline",
+        idade: 33,
+        notas: [5, 7, 4],
+      };
+
+      const novasNotas = [...aluno.notas, 6];
+
+      const { nome, idade } = aluno;
+      alert(
+        `Olá, ${nome}, que possui a idade ${idade} anos. Acesse o console para verificar as suas notas, a sua média e se você passou de ano. Boa sorte!`
+      );
+
+      for (nota of novasNotas) {
+        console.log(`Nota tirada na prova: ${nota}`);
+      }
+
+      function calcularMedia() {
+          return (
+            novasNotas.reduce((soma, nota) => {
+              return soma + nota;
+            }, 0) / novasNotas.length
+          );
+        }
+
+      function verificarSituacao(media) {
+        if (media >= 7) {
+          console.log(
+            `Parabéns, a sua média foi ${media}, o que significa que você foi aprovado!`
+          );
+        } else {
+          console.log(
+            `Sentimos muito, a sua média foi ${media}, o que significa que você foi reprovado.`
+          );
+        }
+      }
+
+      verificarSituacao(calcularMedia());
+
+    </script>
+  </body>
+</html>
